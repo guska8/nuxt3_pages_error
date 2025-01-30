@@ -5,7 +5,17 @@ definePageMeta({
 </script>
 
 <template>
-  <LayoutPageWrapper>
+  <PageWrapper>
     <AwesomeContentDoc empty-tip="Post im empty" />
-  </LayoutPageWrapper>
+  </PageWrapper>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageWrapper: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Wrapper.vue'),
+    ),
+  },
+})
+</script>

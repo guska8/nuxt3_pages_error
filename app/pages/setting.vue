@@ -57,19 +57,19 @@ const validate = async () => {
 </script>
 
 <template>
-  <LayoutPageWrapper>
-    <LayoutPageSection class="mb-0">
+  <PageWrapper>
+    <PageSection class="mb-0">
       <AwesomeAlertBanner
         type="success"
         title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         class="mb-6"
       />
-    </LayoutPageSection>
-    <LayoutPageHeader>
-      <LayoutPageTitle text="Setting" class="capitalize" />
-    </LayoutPageHeader>
-    <LayoutPageSection>
+    </PageSection>
+    <PageHeader>
+      <PageTitle text="Setting" class="capitalize" />
+    </PageHeader>
+    <PageSection>
       <div class="mb-6">
         <HeadlessTabGroup
           as="div"
@@ -230,6 +230,21 @@ const validate = async () => {
           </HeadlessTabPanels>
         </HeadlessTabGroup>
       </div>
-    </LayoutPageSection>
-  </LayoutPageWrapper>
+    </PageSection>
+  </PageWrapper>
 </template>
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageWrapper: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Wrapper.vue'),
+    ),
+    PageHeader: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Header.vue'),
+    ),
+    PageSection: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Section'),
+    ),
+  },
+})
+</script>

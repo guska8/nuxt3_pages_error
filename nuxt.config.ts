@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   // modules
   modules: [
     // chore
-    '@nuxtjs/eslint-module',
+    ['@nuxtjs/eslint-module', { lintOnStart: false }],
     // styling & ui
     '@nuxtjs/tailwindcss',
     'nuxt-headlessui',
@@ -47,11 +47,6 @@ export default defineNuxtConfig({
   ],
 
   components: [
-    {
-      prefix: 'Layout',
-      path: resolve('./components/layouts'),
-      global: true,
-    },
     {
       prefix: 'Awesome',
       path: resolve('./components/awesome'),

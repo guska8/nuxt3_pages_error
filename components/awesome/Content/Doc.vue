@@ -11,12 +11,12 @@ const props = defineProps({
 <template>
   <ContentDoc>
     <template #default="{ doc }">
-      <LayoutPageHeader>
-        <LayoutPageTitle :text="doc.title" />
-      </LayoutPageHeader>
-      <LayoutPageSection>
+      <PageHeader>
+        <PageTitle :text="doc.title" />
+      </PageHeader>
+      <PageSection>
         <ContentRenderer :value="doc" />
-      </LayoutPageSection>
+      </PageSection>
     </template>
     <template #empty>
       <h1>{{ emptyTip }}</h1>
@@ -26,3 +26,18 @@ const props = defineProps({
     </template>
   </ContentDoc>
 </template>
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageHeader: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Header.vue'),
+    ),
+    PageSection: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Section'),
+    ),
+    PageTitle: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Title.vue'),
+    ),
+  },
+})
+</script>

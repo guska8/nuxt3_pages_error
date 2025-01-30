@@ -43,7 +43,7 @@ const showDrawer = ref(false)
         <div class="flex space-x-4 text-sm items-center">
           <!-- dynamic menus -->
           <template v-for="(item, i) in menus" :key="i">
-            <LayoutPageNavbarMenuWrapper :menu="item" />
+            <PageNavbarMenuWrapper :menu="item" />
           </template>
         </div>
         <!-- others -->
@@ -52,7 +52,7 @@ const showDrawer = ref(false)
           <!-- <AwesomeLink class="text-gray-400 hover:text-gray-100">
             <Icon name="la:language" />
           </AwesomeLink> -->
-          <LayoutPageNavbarDropdownThemeSwitcher />
+          <PageNavbarDropdownThemeSwitcher />
           <AwesomeLink
             v-if="awesome?.project?.links?.github"
             class="dark:text-gray-400 text-gray-600"
@@ -130,9 +130,7 @@ const showDrawer = ref(false)
                         open ? 'font-bold' : '',
                       ]"
                     >
-                      <span>{{
-                        parseMenuTitle(item?.title)
-                      }}</span>
+                      <span>{{ parseMenuTitle(item?.title) }}</span>
                       <Icon
                         name="carbon:chevron-right"
                         class="ml-1"
@@ -167,9 +165,7 @@ const showDrawer = ref(false)
                                   ? 'text-gray-900 dark:text-gray-100 font-bold'
                                   : 'text-gray-700 dark:text-gray-300',
                               ]"
-                              >{{
-                                parseMenuTitle(child?.title)
-                              }}</span
+                              >{{ parseMenuTitle(child?.title) }}</span
                             >
                           </NuxtLink>
                         </template>
@@ -186,7 +182,7 @@ const showDrawer = ref(false)
             <div class="mt-2 mb-2 text-sm font-bold capitalize">
               Change Theme
             </div>
-            <LayoutPageNavbarDropdownThemeSwitcher type="select-box" />
+            <PageNavbarDropdownThemeSwitcher type="select-box" />
           </div>
         </AwesomeActionSheetItem>
       </AwesomeActionSheetGroup>
@@ -201,3 +197,17 @@ const showDrawer = ref(false)
     </AwesomeActionSheet>
   </header>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageNavbarDropdownThemeSwitcher: defineAsyncComponent(
+      () =>
+        import('~/components/layouts/Page/NavbarDropdown/ThemeSwitcher.vue'),
+    ),
+    PageNavbarMenuWrapper: defineAsyncComponent(
+      () => import('~/components/layouts/Page/NavbarMenu/Wrapper.vue'),
+    ),
+  },
+})
+</script>

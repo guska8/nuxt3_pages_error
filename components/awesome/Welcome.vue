@@ -55,8 +55,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <LayoutPageWrapper class="flex-1 flex">
-    <LayoutPageSection class="flex-1 flex">
+  <PageWrapper class="flex-1 flex">
+    <PageSection class="flex-1 flex">
       <div class="flex-1 flex flex-col items-center justify-center">
         <h1 class="text-center mt-4">
           <span
@@ -138,10 +138,21 @@ onMounted(() => {
           ></div>
         </div>
       </div>
-    </LayoutPageSection>
-  </LayoutPageWrapper>
+    </PageSection>
+  </PageWrapper>
 </template>
-
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageWrapper: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Wrapper.vue'),
+    ),
+    PageSection: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Section'),
+    ),
+  },
+})
+</script>
 <style lang="scss">
 :root {
   --padding: 0.05em;

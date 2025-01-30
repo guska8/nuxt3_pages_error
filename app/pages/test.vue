@@ -9,12 +9,12 @@ useHead({ title: 'Test Page' })
 </script>
 
 <template>
-  <LayoutPageWrapper>
-    <LayoutPageHeader>
-      <LayoutPageTitle text="Testing" class="capitalize" />
-    </LayoutPageHeader>
-    <LayoutPageSection>
-      <LayoutPageSectionTitle text="Stores Test" />
+  <PageWrapper>
+    <PageHeader>
+      <PageTitle text="Testing" class="capitalize" />
+    </PageHeader>
+    <PageSection>
+      <PageSectionTitle text="Stores Test" />
       <!-- store::counter -->
       <div class="mb-6">
         <div class="mb-2">Counter : {{ counter.count }}</div>
@@ -81,6 +81,22 @@ useHead({ title: 'Test Page' })
           </div>
         </div>
       </div>
-    </LayoutPageSection>
-  </LayoutPageWrapper>
+    </PageSection>
+  </PageWrapper>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageWrapper: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Wrapper.vue'),
+    ),
+    PageHeader: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Header.vue'),
+    ),
+    PageSection: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Section'),
+    ),
+  },
+})
+</script>

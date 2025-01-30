@@ -8,11 +8,11 @@ useHead({ title: 'Posts' })
 </script>
 
 <template>
-  <LayoutPageWrapper>
-    <LayoutPageHeader>
-      <LayoutPageTitle text="Posts" class="capitalize" />
-    </LayoutPageHeader>
-    <LayoutPageSection>
+  <PageWrapper>
+    <PageHeader>
+      <PageTitle text="Posts" class="capitalize" />
+    </PageHeader>
+    <PageSection>
       <ContentList path="/post">
         <template #default="{ list }">
           <div
@@ -55,6 +55,22 @@ useHead({ title: 'Posts' })
           <p>No articles found.</p>
         </template>
       </ContentList>
-    </LayoutPageSection>
-  </LayoutPageWrapper>
+    </PageSection>
+  </PageWrapper>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    PageWrapper: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Wrapper.vue'),
+    ),
+    PageHeader: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Header.vue'),
+    ),
+    PageSection: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Section'),
+    ),
+  },
+})
+</script>
