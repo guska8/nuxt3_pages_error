@@ -41,6 +41,14 @@ const error = computed(() => {
       <span class="font-bold text-8xl block">{{ error.code }}</span>
       <span class="block italic">{{ error.message }}</span>
     </h1>
-    <AwesomeButton text="Home" to="/" size="sm" />
+    <AButton text="Home" to="/" size="sm" />
   </component>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),
+  },
+})
+</script>

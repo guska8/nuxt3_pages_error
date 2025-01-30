@@ -85,7 +85,7 @@ onMounted(() => {
           create file "~/pages/index.vue" to replace this page
         </div>
         <div class="flex space-x-4 ml-2 mt-8 justify-center md:justify-start">
-          <AwesomeButton
+          <AButton
             size="lg"
             :text="
               parseMenuTitle(
@@ -101,7 +101,7 @@ onMounted(() => {
             "
             class="font-extrabold"
           />
-          <AwesomeButton
+          <AButton
             v-if="
               parseMenuRoute(
                 awesome?.layout?.welcome?.secondaryActionButton?.to ||
@@ -144,6 +144,7 @@ onMounted(() => {
 <script lang="ts">
 export default defineComponent({
   components: {
+    AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),
     PageWrapper: defineAsyncComponent(
       () => import('~/components/layouts/Page/Wrapper.vue'),
     ),
@@ -153,6 +154,7 @@ export default defineComponent({
   },
 })
 </script>
+
 <style lang="scss">
 :root {
   --padding: 0.05em;

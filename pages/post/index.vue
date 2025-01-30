@@ -22,13 +22,13 @@ useHead({ title: 'Posts' })
           >
             <div class="mt-1 text-gray-600 dark:text-gray-400 text-right">
               <div>{{ article.date }}</div>
-              <AwesomeLink
+              <ALink
                 class="text-sm flex items-center justify-end space-x-1"
                 :href="`https://www.github.com/${article.author}`"
               >
                 <Icon name="mdi:github-face" class="text-xs" />
                 <span>{{ article.author }}</span>
-              </AwesomeLink>
+              </ALink>
             </div>
             <div class="flex flex-col">
               <div
@@ -40,13 +40,13 @@ useHead({ title: 'Posts' })
                 {{ article.description }}
               </div>
               <div class="flex">
-                <AwesomeLink
+                <ALink
                   class="text-sm flex space-x-1 items-center text-primary-500"
                   :to="article._path"
                 >
                   <span>learn more</span>
                   <Icon name="ic:baseline-arrow-right-alt" class="text-sm" />
-                </AwesomeLink>
+                </ALink>
               </div>
             </div>
           </div>
@@ -62,6 +62,7 @@ useHead({ title: 'Posts' })
 <script lang="ts">
 export default defineComponent({
   components: {
+    ALink: defineAsyncComponent(() => import('~/components/awesome/Link')),
     PageWrapper: defineAsyncComponent(
       () => import('~/components/layouts/Page/Wrapper.vue'),
     ),

@@ -55,15 +55,25 @@ onMounted(() => {
           class="action-sheet-container flex-1 overflow-y-auto space-y-1 justify-end px-4 pb-2 pt-4"
         >
           <slot />
-          <AwesomeActionSheetGroup v-if="closeButton">
-            <AwesomeActionSheetItemButton
+          <ActionSheetGroup v-if="closeButton">
+            <ActionSheetItemButton
               class="text-red-500 font-bold"
               :text="closeButtonText"
               @click="close"
             />
-          </AwesomeActionSheetGroup>
+          </ActionSheetGroup>
         </div>
       </div>
     </HeadlessTransitionRoot>
   </Teleport>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    ActionSheetGroup: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet/Group.vue'),
+    ),
+  },
+})
+</script>

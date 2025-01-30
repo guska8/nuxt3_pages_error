@@ -43,10 +43,18 @@ const props = defineProps({
     </NuxtLink>
   </template>
   <template v-else-if="menu?.type === 'button'">
-    <AwesomeButton
+    <AButton
       :text="parseMenuTitle(menu?.title)"
       size="xs"
       :to="parseMenuRoute(menu.to)"
     />
   </template>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),
+  },
+})
+</script>

@@ -33,14 +33,14 @@ const availableThemes = [
     >
       <HeadlessListboxLabel class="sr-only">Theme</HeadlessListboxLabel>
       <HeadlessListboxButton type="template">
-        <AwesomeLink class="dark:text-gray-400 text-gray-600">
+        <ALink class="dark:text-gray-400 text-gray-600">
           <span class="flex justify-center items-center dark:hidden">
             <Icon name="uil:sun" />
           </span>
           <span class="justify-center items-center hidden dark:flex">
             <Icon name="uil:moon" />
           </span>
-        </AwesomeLink>
+        </ALink>
       </HeadlessListboxButton>
       <HeadlessListboxOptions
         class="p-1 absolute z-50 origin-top-right top-full right-0 outline-none bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300"
@@ -81,3 +81,11 @@ const availableThemes = [
     </select>
   </div>
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    ALink: defineAsyncComponent(() => import('~/components/awesome/Link')),
+  },
+})
+</script>

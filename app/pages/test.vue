@@ -21,28 +21,28 @@ useHead({ title: 'Test Page' })
         <div
           class="flex flex-col items-center justify-items-center space-y-2 md:space-y-0 md:flex-row md:space-x-2"
         >
-          <AwesomeButton
+          <AButton
             class="w-full md:w-auto capitalize"
             type="secondary"
             size="sm"
             text="increment"
             @click.prevent="counter.increment"
           />
-          <AwesomeButton
+          <AButton
             class="w-full md:w-auto"
             type="secondary"
             size="sm"
             text="increment2x"
             @click.prevent="counter.increment2x"
           />
-          <AwesomeButton
+          <AButton
             class="w-full md:w-auto capitalize"
             type="secondary"
             size="sm"
             text="decrement"
             @click.prevent="counter.decrement"
           />
-          <AwesomeButton
+          <AButton
             class="w-full md:w-auto capitalize"
             type="secondary"
             size="sm"
@@ -61,17 +61,17 @@ useHead({ title: 'Test Page' })
           <div
             class="flex flex-col items-center space-y-2 md:space-y-0 md:flex-row md:space-x-2"
           >
-            <AwesomeFormTextInput
+            <FormTextInput
               v-model="identity.firstName"
               size="md"
               class="w-full md:w-1/3"
             />
-            <AwesomeFormTextInput
+            <FormTextInput
               v-model="identity.lastName"
               size="md"
               class="w-full md:w-1/3"
             />
-            <AwesomeButton
+            <AButton
               class="capitalize w-full md:w-auto"
               text="reset"
               type="secondary"
@@ -88,6 +88,10 @@ useHead({ title: 'Test Page' })
 <script lang="ts">
 export default defineComponent({
   components: {
+    AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),
+    FormTextInput: defineAsyncComponent(
+      () => import('~/components/awesome/Form/TextInput.vue'),
+    ),
     PageWrapper: defineAsyncComponent(
       () => import('~/components/layouts/Page/Wrapper.vue'),
     ),

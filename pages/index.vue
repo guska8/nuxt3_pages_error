@@ -5,5 +5,13 @@ useHead({ titleTemplate: '', title: awesome?.name || 'Nuxt 3 Awesome Starter' })
 </script>
 
 <template>
-  <AwesomeWelcome :with-alert="true" />
+  <Welcome :with-alert="true" />
 </template>
+
+<script lang="ts">
+export default defineComponent({
+  components: {
+    Welcome: defineAsyncComponent(() => import('~/components/awesome/Welcome')),
+  },
+})
+</script>

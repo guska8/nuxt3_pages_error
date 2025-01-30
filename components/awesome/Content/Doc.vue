@@ -22,13 +22,14 @@ const props = defineProps({
       <h1>{{ emptyTip }}</h1>
     </template>
     <template #not-found>
-      <AwesomeError :code="404" wrap />
+      <Error :code="404" wrap />
     </template>
   </ContentDoc>
 </template>
 <script lang="ts">
 export default defineComponent({
   components: {
+    Error: defineAsyncComponent(() => import('~/components/awesome/Error.vue')),
     PageHeader: defineAsyncComponent(
       () => import('~/components/layouts/Page/Header.vue'),
     ),

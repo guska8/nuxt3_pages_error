@@ -49,17 +49,17 @@ const showDrawer = ref(false)
         <!-- others -->
         <div class="pl-4 flex space-x-3 text-xl">
           <!-- todo: feat/localization -->
-          <!-- <AwesomeLink class="text-gray-400 hover:text-gray-100">
+          <!-- <Link class="text-gray-400 hover:text-gray-100">
             <Icon name="la:language" />
-          </AwesomeLink> -->
+          </Link> -->
           <PageNavbarDropdownThemeSwitcher />
-          <AwesomeLink
+          <Link
             v-if="awesome?.project?.links?.github"
             class="dark:text-gray-400 text-gray-600"
             :href="awesome?.project?.links?.github"
           >
             <Icon name="mdi:github-face" />
-          </AwesomeLink>
+          </Link>
         </div>
       </div>
       <!-- drawer:btn -->
@@ -69,28 +69,28 @@ const showDrawer = ref(false)
         :class="{ 'divide-x divide-gray-500': menus.length > 0 }"
       >
         <div class="pl-4 flex space-x-3 text-xl">
-          <AwesomeLink
+          <Link
             v-if="awesome?.project?.links?.github"
             class="text-gray-400 hover:text-gray-100"
             @click.prevent="() => (showDrawer = !showDrawer)"
           >
             <Icon name="heroicons:bars-3-bottom-right-20-solid" />
-          </AwesomeLink>
+          </Link>
         </div>
       </div>
     </div>
     <!-- misc -->
     <!-- drawer -->
-    <AwesomeActionSheet
+    <ActionSheet
       v-if="!$screen.higherThan('md', $screen.current.value) && showDrawer"
       @close="() => (showDrawer = false)"
     >
-      <AwesomeActionSheetGroup>
-        <AwesomeActionSheetHeader>
-          <AwesomeActionSheetHeaderTitle text="Menu" />
-        </AwesomeActionSheetHeader>
+      <ActionSheetGroup>
+        <ActionSheetHeader>
+          <ActionSheetHeaderTitle text="Menu" />
+        </ActionSheetHeader>
         <!-- dynamic menus -->
-        <AwesomeActionSheetItem>
+        <ActionSheetItem>
           <div
             class="flex flex-col text-sm items-center divide-y divide-gray-400 dark:divide-gray-700 text-center"
           >
@@ -112,7 +112,7 @@ const showDrawer = ref(false)
                 </NuxtLink>
               </template>
               <template v-if="item?.type === 'button'">
-                <AwesomeButton
+                <AButton
                   :key="i"
                   :text="parseMenuTitle(item?.title)"
                   size="sm"
@@ -176,31 +176,50 @@ const showDrawer = ref(false)
               </template>
             </template>
           </div>
-        </AwesomeActionSheetItem>
-        <AwesomeActionSheetItem class="flex flex-col">
+        </ActionSheetItem>
+        <ActionSheetItem class="flex flex-col">
           <div class="pb-2">
             <div class="mt-2 mb-2 text-sm font-bold capitalize">
               Change Theme
             </div>
             <PageNavbarDropdownThemeSwitcher type="select-box" />
           </div>
-        </AwesomeActionSheetItem>
-      </AwesomeActionSheetGroup>
-      <AwesomeActionSheetGroup>
-        <AwesomeActionSheetItemButton
+        </ActionSheetItem>
+      </ActionSheetGroup>
+      <ActionSheetGroup>
+        <ActionSheetItemButton
           class="flex justify-center items-center text-base space-x-2"
         >
           <Icon name="mdi:github-face" class="text-lg font-bold" />
           <span class="text-sm">Github</span>
-        </AwesomeActionSheetItemButton>
-      </AwesomeActionSheetGroup>
-    </AwesomeActionSheet>
+        </ActionSheetItemButton>
+      </ActionSheetGroup>
+    </ActionSheet>
   </header>
 </template>
 
 <script lang="ts">
 export default defineComponent({
   components: {
+    AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),
+    ActionSheet: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet'),
+    ),
+    ActionSheetGroup: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet/Group.vue'),
+    ),
+    ActionSheetItem: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet/Item.vue'),
+    ),
+    ActionSheetItemButton: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet/ItemButton.vue'),
+    ),
+    ActionSheetHeader: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet/Header.vue'),
+    ),
+    ActionSheetHeaderTitle: defineAsyncComponent(
+      () => import('~/components/awesome/ActionSheet/HeaderTitle.vue'),
+    ),
     PageNavbarDropdownThemeSwitcher: defineAsyncComponent(
       () =>
         import('~/components/layouts/Page/NavbarDropdown/ThemeSwitcher.vue'),

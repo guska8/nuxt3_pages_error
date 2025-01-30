@@ -59,7 +59,7 @@ const validate = async () => {
 <template>
   <PageWrapper>
     <PageSection class="mb-0">
-      <AwesomeAlertBanner
+      <AlertBanner
         type="success"
         title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -100,9 +100,9 @@ const validate = async () => {
           <HeadlessTabPanels class="flex-1">
             <!-- general -->
             <HeadlessTabPanel>
-              <AwesomeCard class="mb-6">
-                <AwesomeCardContent>
-                  <AwesomeCardTitle
+              <Card class="mb-6">
+                <CardContent>
+                  <CardTitle
                     class="capitalize"
                     text="validate github profile"
                   />
@@ -110,88 +110,85 @@ const validate = async () => {
                     type your github username and click the button to validate.
                   </p>
                   <div class="flex">
-                    <AwesomeFormTextInput
-                      v-model="username"
-                      class="w-full md:w-1/3"
-                    >
+                    <FormTextInput v-model="username" class="w-full md:w-1/3">
                       <template #prefix-disabled>
                         <span class="flex-1 px-4 py-2">github.com/</span>
                       </template>
-                    </AwesomeFormTextInput>
+                    </FormTextInput>
                   </div>
-                </AwesomeCardContent>
-                <AwesomeCardFooter
+                </CardContent>
+                <CardFooter
                   class="flex flex-col space-y-2 md:space-y md:flex-row items-center md:justify-between"
                 >
                   <p>
                     Learn more about
-                    <AwesomeLink
+                    <Link
                       class="underline font-bold capitalize"
                       text="github users api"
                       href="https://docs.github.com/en/rest/users/users#get-a-user"
                     />
                   </p>
-                  <AwesomeButton
+                  <Button
                     class="capitalize"
                     size="sm"
                     type="opposite"
                     text="validate"
                     @click="validate"
                   />
-                </AwesomeCardFooter>
-              </AwesomeCard>
-              <AwesomeCard class="mb-4">
-                <AwesomeCardContent>
-                  <AwesomeCardTitle class="capitalize" text="bot id" />
+                </CardFooter>
+              </Card>
+              <Card class="mb-4">
+                <CardContent>
+                  <CardTitle class="capitalize" text="bot id" />
                   <p class="mb-2">This is your bot ID.</p>
                   <div class="flex">
-                    <AwesomeFormTextInput v-model="id" class="w-full md:w-1/3">
+                    <FormTextInput v-model="id" class="w-full md:w-1/3">
                       <template #suffix>
-                        <AwesomeButton
+                        <Button
                           type="opposite"
                           class="flex space-x-1 border-none"
                         >
                           <Icon name="ic:baseline-content-copy" />
                           <span>Copy</span>
-                        </AwesomeButton>
+                        </Button>
                       </template>
-                    </AwesomeFormTextInput>
+                    </FormTextInput>
                   </div>
-                </AwesomeCardContent>
-                <AwesomeCardFooter class="justify-between">
+                </CardContent>
+                <CardFooter class="justify-between">
                   <p>Used when interacting with the bot.</p>
-                </AwesomeCardFooter>
-              </AwesomeCard>
+                </CardFooter>
+              </Card>
             </HeadlessTabPanel>
             <!-- protection -->
             <HeadlessTabPanel>
-              <AwesomeCard
+              <Card
                 :class="{
                   'mb-4': true,
                   'border-red-500 dark:border-red-500': !enableSpamProtection,
                 }"
               >
-                <AwesomeCardContent>
-                  <AwesomeCardTitle class="capitalize" text="spam protection" />
+                <CardContent>
+                  <CardTitle class="capitalize" text="spam protection" />
                   <p class="mb-2">toggle enable to remove the red border</p>
                   <div class="flex">
-                    <AwesomeFormSwitch v-model="enableSpamProtection">
+                    <FormSwitch v-model="enableSpamProtection">
                       <span class="capitalize">{{
                         enableSpamProtection ? 'enabled' : 'disabled'
                       }}</span>
-                    </AwesomeFormSwitch>
+                    </FormSwitch>
                   </div>
-                </AwesomeCardContent>
-                <AwesomeCardFooter class="justify-between">
+                </CardContent>
+                <CardFooter class="justify-between">
                   <p>if enable we will secure your comments from spam</p>
-                </AwesomeCardFooter>
-              </AwesomeCard>
+                </CardFooter>
+              </Card>
             </HeadlessTabPanel>
             <!-- advanced -->
             <HeadlessTabPanel>
-              <AwesomeCard class="mb-6">
-                <AwesomeCardContent>
-                  <AwesomeCardTitle
+              <Card class="mb-6">
+                <CardContent>
+                  <CardTitle
                     class="capitalize"
                     text="enable advanced settings"
                   />
@@ -199,33 +196,30 @@ const validate = async () => {
                     you can enable advanced settings to change the settings
                   </p>
                   <div class="flex">
-                    <AwesomeFormSwitch v-model="enableAdvancedSetting">
+                    <FormSwitch v-model="enableAdvancedSetting">
                       <span class="capitalize">{{
                         enableAdvancedSetting ? 'enabled' : 'disabled'
                       }}</span>
-                    </AwesomeFormSwitch>
+                    </FormSwitch>
                   </div>
-                </AwesomeCardContent>
-              </AwesomeCard>
-              <AwesomeCard class="mb-6" :disabled="!enableAdvancedSetting">
-                <AwesomeCardContent>
-                  <AwesomeCardTitle
-                    class="capitalize"
-                    text="directory listing"
-                  />
+                </CardContent>
+              </Card>
+              <Card class="mb-6" :disabled="!enableAdvancedSetting">
+                <CardContent>
+                  <CardTitle class="capitalize" text="directory listing" />
                   <p class="mb-2">
                     if no index file is present within a directory, the
                     directory contents will be displayed.
                   </p>
                   <div class="flex">
-                    <AwesomeFormSwitch v-model="enableDirList" on>
+                    <FormSwitch v-model="enableDirList" on>
                       <span class="capitalize">{{
                         enableDirList ? 'enabled' : 'disabled'
                       }}</span>
-                    </AwesomeFormSwitch>
+                    </FormSwitch>
                   </div>
-                </AwesomeCardContent>
-              </AwesomeCard>
+                </CardContent>
+              </Card>
             </HeadlessTabPanel>
           </HeadlessTabPanels>
         </HeadlessTabGroup>
@@ -236,6 +230,19 @@ const validate = async () => {
 <script lang="ts">
 export default defineComponent({
   components: {
+    AlertBanner: defineAsyncComponent(
+      () => import('~/components/awesome/AlertBanner.vue'),
+    ),
+    Card: defineAsyncComponent(() => import('~/components/awesome/Card')),
+    CardContent: defineAsyncComponent(
+      () => import('~/components/awesome/Card/Content.vue'),
+    ),
+    CardTitle: defineAsyncComponent(
+      () => import('~/components/awesome/Card/Title.vue'),
+    ),
+    FormTextInput: defineAsyncComponent(
+      () => import('~/components/awesome/Form/TextInput.vue'),
+    ),
     PageWrapper: defineAsyncComponent(
       () => import('~/components/layouts/Page/Wrapper.vue'),
     ),

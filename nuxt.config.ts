@@ -5,6 +5,11 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
   // exp
   experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetch: false,
+      },
+    },
     localLayerAliases: true,
   },
 
@@ -36,9 +41,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     // contents,
     '@nuxt/content',
-
-    // todo: feat/localization
-    // '@nuxtjs/i18n'
   ],
 
   css: [
@@ -46,13 +48,9 @@ export default defineNuxtConfig({
     resolve('./assets/scss/app.scss'),
   ],
 
-  components: [
-    {
-      prefix: 'Awesome',
-      path: resolve('./components/awesome'),
-      global: true,
-    },
-  ],
+  components: {
+    dirs: [],
+  },
 
   imports: {
     dirs: [resolve('./stores'), '~/stores'],
@@ -82,34 +80,4 @@ export default defineNuxtConfig({
       theme: 'github-dark',
     },
   },
-
-  // todo: feat/localization
-  // module::i18n
-  // i18n: {
-  //   strategy: 'no_prefix',
-  //   defaultLocale: 'en',
-  //   langDir: 'locales',
-  //   vueI18n: {
-  //     fallbackLocale: 'en',
-  //   },
-  //   detectBrowserLanguage: {
-  //     useCookie: true,
-  //     fallbackLocale: 'en',
-  //     redirectOn: 'root',
-  //   },
-  //   locales: [
-  //     {
-  //       code: 'en', // English
-  //       iso: 'en-US',
-  //       name: 'English',
-  //       file: 'en.yml',
-  //     },
-  //     {
-  //       code: 'id', // Indonesia
-  //       iso: 'id-ID',
-  //       name: 'Indonesia',
-  //       file: 'id.yml',
-  //     }
-  //   ]
-  // },
 })
