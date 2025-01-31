@@ -8,6 +8,8 @@ npm run dev
 
 If you have multiple pages with async components only the components used in the current page should be fetched from in the browser. What is happening the entire project is being sent to the browser at once.
 
+issue: https://github.com/nuxt/nuxt/issues/30825
+
 ## How to reproduce
 
 1. open page localhost:3000/post with devtools open
