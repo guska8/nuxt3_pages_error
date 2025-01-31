@@ -32,7 +32,7 @@ export default defineComponent({
       () => import('~/components/layouts/Page/Section'),
     ),
     PageSectionTitle: defineAsyncComponent(
-      () => import('~/components/layouts/Page/SectionTitle.vue'),
+      () => import('~/components/layouts/Page/Section/Title.vue'),
     ),
   },
 })
