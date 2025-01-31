@@ -3,13 +3,10 @@ const { resolve } = createResolver(import.meta.url)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
+  builder: 'webpack',
   // exp
   experimental: {
-    defaults: {
-      nuxtLink: {
-        prefetch: false,
-      },
-    },
     localLayerAliases: true,
   },
 
