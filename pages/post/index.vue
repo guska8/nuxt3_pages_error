@@ -63,6 +63,9 @@ useHead({ title: 'Posts' })
 export default defineComponent({
   components: {
     ALink: defineAsyncComponent(() => import('~/components/awesome/Link')),
+    PageTitle: defineAsyncComponent(
+      () => import('~/components/layouts/Page/Title.vue'),
+    ),
     PageWrapper: defineAsyncComponent(
       () => import('~/components/layouts/Page/Wrapper.vue'),
     ),
