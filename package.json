@@ -30,6 +30,7 @@
   "scripts": {
     "build": "nuxt build ./app",
     "dev": "nuxt dev ./app --no-clear",
+    "dev:debug": "nuxi dev --inspect",
     "generate": "nuxt generate ./app",
     "preview": "nuxt preview ./app",
     "postinstall": "nuxt prepare ./app",
