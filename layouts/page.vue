@@ -20,6 +20,6 @@ export default defineComponent({
     PageFooter: defineAsyncComponent(
       () => import('~/components/layouts/Page/Footer.vue'),
     ),
-  },
+  }
 })
 </script>

@@ -5,9 +5,20 @@ const { resolve } = createResolver(import.meta.url)
 export default defineNuxtConfig({
   ssr: false,
   builder: 'webpack',
+
+  devtools: { enabled: true },
+  sourcemap: {
+    client: true
+  },
+
   // exp
   experimental: {
     localLayerAliases: true,
+    defaults: {
+      nuxtLink: {
+        prefetch: false
+      }
+    }
   },
 
   // app config
@@ -77,4 +88,17 @@ export default defineNuxtConfig({
       theme: 'github-dark',
     },
   },
+
+  hooks: {
+    // eslint-disable-next-line space-before-function-paren
+    'build:manifest'(manifest) {
+      for (const item of Object.values(manifest)) {
+        // item.dynamicImports = []
+        item.prefetch = false
+        item.preload = false
+      }
+    }
+  },
+
+  compatibilityDate: '2025-01-31',
 })

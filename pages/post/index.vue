@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 // compiler micro
 definePageMeta({ layout: 'page' })
 useHead({ title: 'Posts' })
