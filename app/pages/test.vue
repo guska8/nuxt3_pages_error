@@ -1,10 +1,10 @@
-<script lang="ts" setup>
+<script setup>
 //
 const counter = useCounter()
 const identity = useIdentity()
 
 // compiler micro
-definePageMeta({ layout: 'page' })
+definePageMeta({ layout: 'page1' })
 useHead({ title: 'Test Page' })
 </script>
 
@@ -85,7 +85,7 @@ useHead({ title: 'Test Page' })
   </PageWrapper>
 </template>
 
-<script lang="ts">
+<script>
 export default defineComponent({
   components: {
     AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),

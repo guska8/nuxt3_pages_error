@@ -1,41 +1,45 @@
 <template>
   <div class="overflow-x-hidden">
-    <AlertBanner type="success" title="This is a page for testing purposes"
-      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      class="mb-6" />
-
-    <Card class="mb-6">
-      <CardContent>
-        <CardTitle class="capitalize" text="validate github profile" />
-        <p class="mb-2">
-          type your github username and click the button to validate.
-        </p>
-        <div class="flex">
-          <FormTextInput v-model="username" class="w-full md:w-1/3">
-            <template #prefix-disabled>
-              <span class="flex-1 px-4 py-2">github.com/</span>
-            </template>
-          </FormTextInput>
-        </div>
-      </CardContent>
-      <CardFooter class="flex flex-col space-y-2 md:space-y md:flex-row items-center md:justify-between">
-        <p>
-          Learn more about
-          <Link class="underline font-bold capitalize" text="github users api"
-            href="https://docs.github.com/en/rest/users/users#get-a-user" />
-        </p>
-        <Button class="capitalize" size="sm" type="opposite" text="validate" @click="validate" />
-      </CardFooter>
-    </Card>
     <PageNavbar class="h-[64px] max-h-[64px]" />
-    <PageContent>
-      <slot />
-    </PageContent>
+    <main>
+      <h1>Layout 2</h1>
+
+      <AlertBanner type="success" title="This is a page for testing purposes"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        class="mb-6" />
+
+      <Card class="mb-6">
+        <CardContent>
+          <CardTitle class="capitalize" text="validate github profile" />
+          <p class="mb-2">
+            type your github username and click the button to validate.
+          </p>
+          <div class="flex">
+            <FormTextInput v-model="username" class="w-full md:w-1/3">
+              <template #prefix-disabled>
+                <span class="flex-1 px-4 py-2">github.com/</span>
+              </template>
+            </FormTextInput>
+          </div>
+        </CardContent>
+        <CardFooter class="flex flex-col space-y-2 md:space-y md:flex-row items-center md:justify-between">
+          <p>
+            Learn more about
+            <Link class="underline font-bold capitalize" text="github users api"
+              href="https://docs.github.com/en/rest/users/users#get-a-user" />
+          </p>
+          <Button class="capitalize" size="sm" type="opposite" text="validate" @click="validate" />
+        </CardFooter>
+      </Card>
+      <PageContent>
+        <slot />
+      </PageContent>
+    </main>
     <PageFooter class="h-[52px] md:h-[42px]" />
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default defineComponent({
   components: {
     PageNavbar: defineAsyncComponent(
@@ -59,13 +63,7 @@ export default defineComponent({
     ),
     FormTextInput: defineAsyncComponent(
       () => import('~/components/awesome/Form/TextInput.vue'),
-    ),
-    Fodder1: defineAsyncComponent(
-      () => import('~/components/Fodder1.vue'),
-    ),
-    Fodder2: defineAsyncComponent(
-      () => import('~/components/Fodder2.vue'),
-    ),
+    )
   },
 
   data() {
@@ -75,3 +73,11 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+:deep() {
+  main {
+    margin-top: 80px;
+  }
+}
+</style>

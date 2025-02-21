@@ -10,6 +10,15 @@ export default defineNuxtConfig({
   sourcemap: {
     client: true
   },
+  typescript: { strict: false },
+
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'es2023'
+      }
+    }
+  },
 
   // exp
   experimental: {
@@ -27,13 +36,6 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
-
-  // typescripts
-  // todo: feat/strict-type-check
-  // typescript: {
-  //   strict: true,
-  //   typeCheck: true,
-  // },
 
   // modules
   modules: [

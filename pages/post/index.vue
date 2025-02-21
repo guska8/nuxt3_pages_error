@@ -1,6 +1,6 @@
-<script lang="ts" setup>
+<script setup>
 // compiler micro
-definePageMeta({ layout: 'page' })
+definePageMeta({ layout: 'page1' })
 useHead({ title: 'Posts' })
 // query
 // const query: QueryBuilderParams = { path: '/post' }
@@ -48,7 +48,7 @@ useHead({ title: 'Posts' })
   </PageWrapper>
 </template>
 
-<script lang="ts">
+<script>
 export default defineComponent({
   components: {
     PageTitle: defineAsyncComponent(

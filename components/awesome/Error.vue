@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 // components
 const PageWrapper = resolveComponent('LayoutPageWrapper')
 
@@ -45,7 +45,7 @@ const error = computed(() => {
   </component>
 </template>
 
-<script lang="ts">
+<script>
 export default defineComponent({
   components: {
     AButton: defineAsyncComponent(() => import('~/components/awesome/Button')),

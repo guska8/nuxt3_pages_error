@@ -1,7 +1,7 @@
-<script lang="ts" setup>
+<script setup>
 const { awesome } = useAppConfig()
-definePageMeta({ layout: 'page' })
-useHead({ titleTemplate: '', title: awesome?.name || 'Nuxt 3 Awesome Starter' })
+definePageMeta({ layout: 'page1' })
+useHead({ titleTemplate: '', title: awesome?.name })
 </script>
 
 <template>
@@ -10,7 +10,7 @@ useHead({ titleTemplate: '', title: awesome?.name || 'Nuxt 3 Awesome Starter' })
   </div>
 </template>
 
-<script lang="ts">
+<script>
 
 export default defineComponent({
   components: {
