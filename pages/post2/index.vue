@@ -4,15 +4,12 @@ useHead({ title: 'Posts2' })
 </script>
 
 <template>
-  <div>
-    <Fodder2></Fodder2>
-  </div>
+  post 2
 </template>
 
 <script>
-export default {
+export default defineComponent({
   components: {
-    Fodder2: defineAsyncComponent(() => import('~/components/Fodder2.vue')),
   },
-}
+})
 </script>

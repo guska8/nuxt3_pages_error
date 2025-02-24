@@ -1,20 +1,17 @@
 <script setup>
 const { awesome } = useAppConfig()
-definePageMeta({ layout: 'page1' })
+definePageMeta({ layout: 'empty' })
 useHead({ titleTemplate: '', title: awesome?.name })
 </script>
 
 <template>
   <div style="margin-top:100px">
-    <Welcome :with-alert="true" />
+    <Welcome />
   </div>
 </template>
 
 <script>
 
 export default defineComponent({
-  components: {
-    Welcome: defineAsyncComponent(() => import('~/components/awesome/Welcome')),
-  }
 })
 </script>
