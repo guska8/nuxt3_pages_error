@@ -7,6 +7,9 @@
   "license": "MIT",
   "type": "module",
   "main": "./nuxt.config.ts",
+  "stackblitz": {
+    "startCommand": "npm i && npm run dev"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/viandwi24/nuxt3-awesome-starter"
@@ -27,7 +30,6 @@
     "tsconfig.json"
   ],
   "scripts": {
-    "startCommand": "npm i && npm run dev",
     "build": "nuxt build",
     "dev": "nuxt dev --no-clear",
     "dev:debug": "nuxi dev --inspect",
