@@ -27,6 +27,7 @@
     "tsconfig.json"
   ],
   "scripts": {
+    "startCommand": "npm run dev",
     "build": "nuxt build",
     "dev": "nuxt dev --no-clear",
     "dev:debug": "nuxi dev --inspect",
